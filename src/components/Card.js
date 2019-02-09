@@ -5,10 +5,11 @@ import AgeKids from './AgeKids.js';
 import MealPreferences from './MealPreferences.js';
 import Interests from './Interests';
 import IncrementComponent from './IncrementComponent.js';
+import MapContainer from './MapContainer.js';
 
 class Card extends Component {
 
-    state={
+    state = {
         Adults: 0,
         Seniors: 0,
         Youth: 0,
@@ -17,14 +18,14 @@ class Card extends Component {
     }
     IncrementItem = (field) => {
 
-        this.setState({[field]: this.state[field]+ 1 });
-      }
-      DecreaseItem = (field) => {
-        this.setState({ [field]: this.state[field]==0 ? 0:this.state[field]- 1 });
-      }
-      ToggleClick = () => {
+        this.setState({ [field]: this.state[field] + 1 });
+    }
+    DecreaseItem = (field) => {
+        this.setState({ [field]: this.state[field] == 0 ? 0 : this.state[field] - 1 });
+    }
+    ToggleClick = () => {
         this.setState({ show: !this.state.show });
-      }
+    }
 
     render() {
         var styles = {
@@ -46,58 +47,47 @@ class Card extends Component {
                 <div style={styles.cardContainer}>
                     <div style={styles.cardStyle}>
                         <Square />
-
                         <div style={styles.titleStyle}>
-
-
                             <table className="table-borderless mx-auto my-5">
-                               <tbody >
-                                <tr className="my-2 ">
-                                    <td>Adults  (18-64)</td>
-                                    <td> <IncrementComponent name="Adults" value = {this.state.Adults} increment={this.IncrementItem} decrement={this.DecreaseItem} /></td>
-                                    
-                                </tr>
-                                <br/>
-                                <tr>
-                                    <td>Seniors (65+)</td>
-                                    <td><IncrementComponent name="Seniors" value = {this.state.Seniors} increment={this.IncrementItem} decrement={this.DecreaseItem}/></td>
-                                   
-                                </tr>
-                                <br/>
-                                <tr>
-                                    <td>Youth (12-17)</td>
-                                    <td><IncrementComponent name="Youth" value = {this.state.Youth} increment={this.IncrementItem} decrement={this.DecreaseItem}/></td>
-                                   
-                                </tr>
-                                <br/>
-                                <tr>
-                                    <td>Child (2-11)</td>
-                                    <td><IncrementComponent name="Child" value = {this.state.Child} increment={this.IncrementItem} decrement={this.DecreaseItem}/></td>
-                                   
-                                </tr>
-                                <br/>
-                                <tr>
-                                    <td>Seat Infant (under 2)</td>
-                                    <td><IncrementComponent name="Infant" value = {this.state.Infant} increment={this.IncrementItem} decrement={this.DecreaseItem}/></td>
-                                   
-                                </tr>
+                                <tbody >
+                                    <tr className="my-2 ">
+                                        <td>Adults  (18-64)</td>
+                                        <td> <IncrementComponent name="Adults" value={this.state.Adults} increment={this.IncrementItem} decrement={this.DecreaseItem} /></td>
+
+                                    </tr>
+                                    <br />
+                                    <tr>
+                                        <td>Seniors (65+)</td>
+                                        <td><IncrementComponent name="Seniors" value={this.state.Seniors} increment={this.IncrementItem} decrement={this.DecreaseItem} /></td>
+
+                                    </tr>
+                                    <br />
+                                    <tr>
+                                        <td>Youth (12-17)</td>
+                                        <td><IncrementComponent name="Youth" value={this.state.Youth} increment={this.IncrementItem} decrement={this.DecreaseItem} /></td>
+
+                                    </tr>
+                                    <br />
+                                    <tr>
+                                        <td>Child (2-11)</td>
+                                        <td><IncrementComponent name="Child" value={this.state.Child} increment={this.IncrementItem} decrement={this.DecreaseItem} /></td>
+
+                                    </tr>
+                                    <br />
+                                    <tr>
+                                        <td>Seat Infant (under 2)</td>
+                                        <td><IncrementComponent name="Infant" value={this.state.Infant} increment={this.IncrementItem} decrement={this.DecreaseItem} /></td>
+
+                                    </tr>
                                 </tbody>
-                               
                             </table>
-
-                           
-
                         </div>
-
-
                     </div>
-
 
 
                     <div style={styles.cardStyle}>
                         <Square />
                         <MealPreferences />
-
 
                     </div>
 
@@ -106,6 +96,11 @@ class Card extends Component {
                         <p> </p>
                         <Interests />
 
+                    </div>
+
+                    <div style={styles.cardStyle}>
+                    <Square />
+                    <MapContainer />
                     </div>
                 </div>
 
